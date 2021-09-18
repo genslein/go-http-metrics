@@ -5,6 +5,7 @@ INTEGRATION_TEST_CMD 	:= go test ./test/integration -race
 BENCHMARK_CMD 			:= go test `go list ./...` -benchmem -bench=.
 CHECK_CMD 				:= golangci-lint run -E goimports
 DEPS_CMD 				:= go mod tidy
+UPDATE_GO_CMD			:= go get -u
 MOCKS_CMD 				:= go generate ./internal/mocks
 
 help: ## Show this help.
@@ -38,6 +39,10 @@ check: ## Execute check.
 deps: ## Tidy dependencies.
 	$(DEPS_CMD)
 
+.PHONY: update-go
+update-go: ## Update dependencies.
+	$(UPDATE_GO_CMD)
+
 .PHONY: mocks
 mocks: ## Generates mocks.
 	$(MOCKS_CMD)
@@ -45,3 +50,6 @@ mocks: ## Generates mocks.
 .PHONY: docs
 docs: ## Runs docs example on :6060.
 	godoc -http=":6060"
+
+.PHONY: update-deps
+update-deps: update-go deps
