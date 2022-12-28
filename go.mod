@@ -9,9 +9,9 @@ require (
 	github.com/gorilla/mux v1.8.0
 	github.com/julienschmidt/httprouter v1.3.0
 	github.com/justinas/alice v1.2.0
-	github.com/labstack/echo/v4 v4.5.0
+	github.com/labstack/echo/v4 v4.10.0
 	github.com/prometheus/client_golang v1.11.0
-	github.com/stretchr/testify v1.7.0
+	github.com/stretchr/testify v1.8.1
 	github.com/urfave/negroni v1.0.0
 	github.com/valyala/fasthttp v1.30.0
 	go.opencensus.io v0.23.0
